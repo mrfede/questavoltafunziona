@@ -337,7 +337,12 @@ function prototype_set_default_values_funct() {
     this.mouse_on_container = false;
     this.results_showing = false;
     this.result_highlighted = null;
-    this.allow_single_deselect = (this.options.allow_single_deselect != null) && (this.form_field.options[0] != null) && this.form_field.options[0].text === "" ? this.options.allow_single_deselect : false;
+    if ((this.options.allow_single_deselect != null) && (this.form_field.options[0] != null) && (this.form_field_options[0].text === "")){
+    	this.allow_single_deselect=this.options.allow_single_deselect;
+    }else{
+    	this.allow_single_deselect = false;
+    }
+    //this.allow_single_deselect = (this.options.allow_single_deselect != null) && (this.form_field.options[0] != null) && this.form_field.options[0].text === "" ? this.options.allow_single_deselect : false;
     this.disable_search_threshold = this.options.disable_search_threshold || 0;
     this.disable_search = this.options.disable_search || false;
     this.enable_split_word_search = this.options.enable_split_word_search != null ? this.options.enable_split_word_search : true;
