@@ -126,7 +126,8 @@ function set_extend_funct(child, parent) {
 	  function ctor() { 
 		  this.constructor = child; } 
 	  ctor.prototype = parent.prototype;
-	  child.prototype = new ctor(); child.__super__ = parent.prototype; 
+	  child.prototype = new ctor(); 
+	  child.__super__ = parent.prototype; 
 	  return child; };
 
 function select_to_array_funct(select) {
@@ -1437,6 +1438,8 @@ function keyDownChecker(evt) {
         evt.preventDefault();
         this.keydown_arrow();
         break;
+       default:
+    	   break;
     }
   };
 
